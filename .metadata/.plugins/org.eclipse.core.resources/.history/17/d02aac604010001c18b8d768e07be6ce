@@ -1,0 +1,9 @@
+package org.ict.controller.di.classfile;
+
+public class Satellite {
+	private Broadcast broadcast;
+	
+	public Satellite (Broadcast broadcast) {
+		this.broadcast = broadcast;
+	}
+}

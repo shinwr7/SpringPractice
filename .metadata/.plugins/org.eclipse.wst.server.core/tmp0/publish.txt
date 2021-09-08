@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Sep 08 18:07:25 KST 2021
+org.eclipse.jst.jee.server\:SpringMvcPractice=C\:\\apache-tomcat-9.0.52\\wtpwebapps\\SpringMvcPractice
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Code\ Shin\\.m2\\repository\\org\\springframework\\spring-web\\5.0.7.RELEASE\\spring-web-5.0.7.RELEASE.jar=C\:\\apache-tomcat-9.0.52\\wtpwebapps\\SpringMvcPractice\\WEB-INF\\lib\\spring-web-5.0.7.RELEASE.jar

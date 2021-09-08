@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>입력받은 섭씨 온도 : ${cel}도</h1>
+	<h1>화씨 기온 : ${far }도</h1>
+</body>
+</html>

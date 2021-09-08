@@ -1,0 +1,5 @@
+package org.ict.controller.di.classfile;
+
+public class Satellite {
+
+}
