@@ -2,4 +2,5 @@
 <aop-reference-model>
 <aop-project name="SpringMvcPractice"/>
 <aop-project name="MyFirstSpring"/>
+<aop-project name="SpringBoardPrj"/>
 </aop-reference-model>
