@@ -10,9 +10,9 @@
 		<property name="driverClassName"
 		 value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		 <property name="jdbcUrl"
-		 value="jdbc:log4jdbc:mysql://localhost:3306/ict3?serverTimezone=UTC"></property>
-		 <property name="username" value="root"></property>
-		 <property name="password" value="shin8149"></property>
+		 value="jdbc:log4jdbc:oracle:thin:@localhost:1521/XEPDB1"></property>
+		 <property name="username" value="mytest"></property>
+		 <property name="password" value="mytest"></property>
 	</bean>	
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">

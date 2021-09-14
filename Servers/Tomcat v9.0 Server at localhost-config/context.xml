@@ -17,7 +17,8 @@
 --><!-- The contents of this file will be loaded for each web application --><Context>
 
     <!-- Default set of monitored resources. If one of these changes, the    -->
-    <!-- web application will be reloaded.                                   -->
+    <!-- web application will be reloaded.  
+                                     -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
     <WatchedResource>WEB-INF/tomcat-web.xml</WatchedResource>
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
@@ -26,4 +27,5 @@
     <!--
     <Manager pathname="" />
     -->
+     <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxActive="300" maxWait="1000" name="jdbc/mysql" password="mysql" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/ict03" username="root"/>
 </Context>
