@@ -51,9 +51,34 @@ public class BoardMapperTests {
 		bm.insert(vo);
 	}
 	
-	@Test
+	//@Test
 	public void testSelect() {
 		log.info(bm.select(3L));
 	}
+	// 글 번호 (Long bno)를 파라미터로 받아/
+	// 해당 글 번호에 맞는 글을 삭제해주는 메서드를 작성해주세요
+	// 메서드 이름은 delete 입니다
+	// xml파일에 쿼리문도 작성해주시고
+	// 테스트코까지 만들어 실제로 삭제되는지 sqldeveloper로 봐주세요 
+	
+	//@Test
+	public void testDelete() {
+		
+		bm.delete(3L);
+	}
+	
+	//@Test
+	public void testUpdate() {
+		
+		BoardVO vo = new BoardVO() ;
+		
+		vo.setTitle("s");
+		vo.setContent("s");
+		vo.setWriter("s");
+		vo.setBno(4L);
+		
+		bm.update(vo);
+	}
+	
 	
 }

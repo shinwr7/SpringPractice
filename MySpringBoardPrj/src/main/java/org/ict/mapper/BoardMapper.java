@@ -27,4 +27,15 @@ public interface BoardMapper {
 	public BoardVO select(Long bno);
 	
 	
+	public void delete(Long bno);
+	
+	
+	// 글 수정 로직을 작성해보겠습니다. =
+	// BoardVO를 받아서 수정해줍니다.
+	// 바꿀 내역은, title, content, writer는 vo에서 받아서
+	// updatedate는 sysdate로 
+	// where 구문은 bno로 구분해서 처리합니다.
+	// 수정 로직을 작성해주시고, 테스트까지 해주세요. 
+	
+	public void update(BoardVO vo);
 }

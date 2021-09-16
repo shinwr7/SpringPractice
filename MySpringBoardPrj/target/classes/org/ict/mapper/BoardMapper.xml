@@ -15,7 +15,7 @@
 	<!-- ![CDATA[  실행문  ]] -->
 	
 	<![CDATA[
-		SELECT * FROM board_tbl WHERE bno < 4
+		SELECT * FROM board_tbl ORDER BY bno ASC
 	]]>
 		
 	</select>
@@ -32,4 +32,11 @@
 		SELECT * FROM board_tbl WHERE bno=#{bno}
 	</select>
 	
+	<delete id="delete">
+		DELETE FROM board_tbl WHERE bno = #{bno}
+	</delete>
+	
+	<update id="update">
+		UPDATE board_tbl SET title=#{title}, content=#{content}, writer=#{writer}, updatedate=sysdate WHERE bno=#{bno}
+	</update>
 </mapper>
