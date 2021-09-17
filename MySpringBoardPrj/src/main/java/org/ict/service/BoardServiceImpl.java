@@ -24,7 +24,7 @@ public class BoardServiceImpl implements BoardService{
 	public void register(BoardVO vo) {
 		
 		log.info("등록 작업 실행");
-		mapper.insert(vo);
+		mapper.insertSelectKey(vo);
 	}
 
 	@Override
@@ -58,9 +58,9 @@ public class BoardServiceImpl implements BoardService{
 		// 추가로 테스트도 진행
 
 	@Override
-	public List<BoardVO> getList() {
+	public List<BoardVO> getList(String keyword) {
 		// TODO Auto-generated method stub
-		List<BoardVO> boardList = mapper.getList();
+		List<BoardVO> boardList = mapper.getList(keyword);
 		return boardList;
 	}
 

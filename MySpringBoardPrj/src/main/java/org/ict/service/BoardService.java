@@ -25,6 +25,6 @@ public interface BoardService {
 		public void remove(Long bno);
 		
 		
-		public List<BoardVO> getList();
+		public List<BoardVO> getList(String keyword);
 		
 }

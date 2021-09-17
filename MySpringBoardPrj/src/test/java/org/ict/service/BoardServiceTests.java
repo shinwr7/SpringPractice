@@ -52,7 +52,7 @@ public class BoardServiceTests {
 	//@Test
 	public void testGetList() {
 		
-		log.info(service.getList());
+	//	log.info(service.getList());
 		
 	}
 	//@Test

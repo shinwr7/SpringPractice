@@ -29,7 +29,7 @@ public class BoardMapperTests {
 	//@Test
 	public void testGetList() {
 		// mapper 내부의 getList 메서드를 호출하려면? 
-		log.info(bm.getList());
+		//log.info(bm.getList());
 	}
 	
 	
