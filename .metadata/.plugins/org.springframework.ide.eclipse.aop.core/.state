@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="SpringMvcPractice"/>
+<aop-project name="JdbcMybatisPrj"/>
 <aop-project name="MyFirstSpring"/>
-<aop-project name="SpringBoardPrj"/>
+<aop-project name="MySpringBoardPrj"/>
 </aop-reference-model>
