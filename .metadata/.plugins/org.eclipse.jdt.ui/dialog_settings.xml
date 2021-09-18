@@ -35,4 +35,10 @@
 		<item key="updateQualifiedNames" value="false"/>
 		<item key="patterns" value="*"/>
 	</section>
+<<<<<<< HEAD
+=======
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="3"/>
+	</section>
+>>>>>>> f0fd4ba7fb1ca1a045d30c56e6ffb00cdd821c27
 </section>
