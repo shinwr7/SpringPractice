@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<meta charset="UTF-8">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
 <title>Insert title here</title>
 </head>
 <style>
@@ -28,11 +28,12 @@
 </style>
 <body>
 
-	<div class="panel panel-default ">
+<div class="panel panel-default ">
   <!-- Default panel contents -->
   <div class="panel-heading">게시물 목록</div>
   <div class="panel-body">
   </div>
+</div>
  <!-- 검색창 -->
  <div class="navbar navbar-inverse navbar-fixed-top" style="width:1000px">
    <div class="container">
@@ -74,9 +75,30 @@
 		</c:forEach>
 	  <!-- Table -->
 	  </table>
-	</div>
   	<button type="button" class="btn btn-primary" onclick="location.href='/board/register'">글쓰기</button>
 	
+	
+	<!-- 모달 코드는 작성이 안되어있는게 아니고 
+	작성은 해뒀지만 css의 display 속성을 none으로 평상시에 두고 
+	특정한 요건을 만족했을때만 display를 허용하도록 설계되어있다.
+	그래서 아래와 같이 모달 예시코드를 붙여넣어도 일반 화면에서는 보이지 않는다. -->
+<div class="modal" id="myModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">알림</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>${bno }번 글 작성완료</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		// 컨트롤러에서 success라는 이름으로 날린 자료가 들어오는지 확인
 		// 그냥 list 페이지 접근시는 success를 날려주지 않아서
@@ -85,10 +107,20 @@
 		var result = "${success}";
 		var bno = "${bno}";
 		var keyword_ok = "검색";
+		
+		// 모달 사용 위한 변수 선언
+		// 모달 공식문ㅅ의 자바스크립트 관련 실행 코드를 복사
+		var myModal = new bootstrap.Modal(document.getElementById('myModal'), focus);
+		var myInput = document.getElementById('myInput');
+
 		console.log(result);
 		
 		if(result==="success"&&bno!=null) {
 			alert(${bno}+'번 글 삭제 완료');
+		}
+		else if(result==="register"&&bno!=null) {
+			myModal.show();
+			
 		}
 		
 		

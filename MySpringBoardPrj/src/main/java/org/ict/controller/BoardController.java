@@ -70,7 +70,8 @@ public class BoardController {
 		// model.addAttribute()를 쓴다면
 		// 일반 이동이 아닌 redirect 이동시는 데이터가 소멸됨 
 		// 이를 막기 위해 rttr.addFlashAttribute로 대신함
-		rttr.addFlashAttribute("result", vo.getBno());
+		rttr.addFlashAttribute("bno", vo.getBno());
+		rttr.addFlashAttribute("success", "register");
 		
 		// views 폴더 하위 board 폴더의 list.jsp 출력
 		// redirect로 이동시킬떄는 "redirect:파일명"
