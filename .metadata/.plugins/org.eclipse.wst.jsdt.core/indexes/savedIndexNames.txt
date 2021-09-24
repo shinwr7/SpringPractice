@@ -1,22 +1,10 @@
-<<<<<<< HEAD
 INDEX VERSION 1.4+C:\eclipse\eclipse_2020_09\spring_workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-516388772.index
-2328537765.index
-1039424510.index
-=======
-INDEX VERSION 1.4+C:\eclipse\spring_workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3052776501.index
-2328537765.index
-2594194814.index
-1070411770.index
-2508944395.index
->>>>>>> f0fd4ba7fb1ca1a045d30c56e6ffb00cdd821c27
-1705386031.index
-2557061566.index
-757502925.index
-3485287684.index
-1836340017.index
-3052776501.index
-1590254064.index
 3484806544.index
+1705386031.index
+3052776501.index
+516388772.index
+1039424510.index
 3750654825.index
+2328537765.index
+1836340017.index
+1590254064.index

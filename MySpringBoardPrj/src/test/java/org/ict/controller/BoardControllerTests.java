@@ -1,6 +1,8 @@
 package org.ict.controller;
 
 
+import java.util.List;
+
 import org.ict.domain.BoardVO;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +14,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -46,24 +49,24 @@ public class BoardControllerTests {
 	}
 	
 	//@Test
-	public void testList() throws Exception {
+//	public void testList() throws Exception {
+//		
+//		log.info(
+//				// .get/ .post(접속주소) 를 제외한 나머지는
+//				// 다 고정된 양식을 가진 코드이므로 복잡해보이지만
+//				// 실제로는 복사붙여넣기로 쓰셔도 무방합니다.
+//				// .get(접속주소)를 입력하면 get방식으로 해당 주소에 
+//				// 접속합니다.
+//				// /board/list/ 에 접속하면 글 목록 가져오기 페이지이기 때문에
+//				// 글 전체 목록을 가져오는지 여부를 테스트해야 합니다.
+//				mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
+//				.andReturn()
+//				.getModelAndView()
+//				.getModelMap()
+//				);
 		
-		log.info(
-				// .get/ .post(접속주소) 를 제외한 나머지는
-				// 다 고정된 양식을 가진 코드이므로 복잡해보이지만
-				// 실제로는 복사붙여넣기로 쓰셔도 무방합니다.
-				// .get(접속주소)를 입력하면 get방식으로 해당 주소에 
-				// 접속합니다.
-				// /board/list/ 에 접속하면 글 목록 가져오기 페이지이기 때문에
-				// 글 전체 목록을 가져오는지 여부를 테스트해야 합니다.
-				mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
-				.andReturn()
-				.getModelAndView()
-				.getModelMap()
-				);
 		
-		
-	}
+//	}
 	// board/register 주소로 파라미터값을 post방식으로 넘겼을 때
 	// 글이 써지는지 테스트
 	
@@ -110,7 +113,7 @@ public class BoardControllerTests {
 		log.info(resultPage);
 		
 	}
-	@Test
+	//@Test
 public void testModify() throws Exception {
 		
 		// 실제로 실행될 쿼리문과 비교해서 데이터를 날려주시면 됩니다.
@@ -127,6 +130,17 @@ public void testModify() throws Exception {
 				
 		log.info(resultPage);
 		
+}
+@Test
+public void testGetListPaging() throws Exception{
+	String resultPage = mockMvc.perform(
+			MockMvcRequestBuilders.post("/board/list")
+			.param("pageNum", "11")
+			.param("amount", "10")
+			).andReturn().getModelAndView().getViewName();
+		
+	log.info(resultPage);
+	
 }
 }
 	
