@@ -1,5 +1,3 @@
 INDEX VERSION 1.131
-C:\eclipse\eclipse_2020_09\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1070411770.index
-\MySpringBoardPrj\src\main\java
-C:\eclipse\eclipse_2020_09\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2182011843.index
+C:\eclipse\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1070411770.index
 \MySpringBoardPrj\src\main\java

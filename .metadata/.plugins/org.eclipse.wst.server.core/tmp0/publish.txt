@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Thu Sep 23 12:00:49 KST 2021
+#Mon Sep 27 14:24:35 KST 2021
 org.eclipse.jst.jee.server\:MySpringBoardPrj=C\:\\apache-tomcat-9.0.50\\wtpwebapps\\MySpringBoardPrj
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ict03-14\\.m2\\repository\\org\\springframework\\spring-web\\5.0.7.RELEASE\\spring-web-5.0.7.RELEASE.jar=C\:\\apache-tomcat-9.0.50\\wtpwebapps\\MySpringBoardPrj\\WEB-INF\\lib\\spring-web-5.0.7.RELEASE.jar

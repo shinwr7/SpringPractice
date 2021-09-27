@@ -66,4 +66,8 @@
 		 ]]>
 	</select>
 	
+	<select id ="getListCount" resultType="int">
+		SELECT count(*) from board_tbl
+	</select>
+	
 </mapper>

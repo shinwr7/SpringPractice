@@ -30,4 +30,7 @@ public interface BoardService {
 		
 		// 페이징 글 목록
 		public List<BoardVO> getListPaging(Criteria cri);
+		
+		// 글 갯수
+		public int getListCount();
 }

@@ -27,7 +27,7 @@
 }
 </style>
 <body>
-
+${btnMaker }
 <div class="panel panel-default ">
   <!-- Default panel contents -->
   <div class="panel-heading">게시물 목록</div>
@@ -75,6 +75,29 @@
 		</c:forEach>
 	  <!-- Table -->
 	  </table>
+	  <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+  	<!-- prev 버튼 -->
+  	<c:if test="${btnMaker.prev }">
+    	<li class="page-item"><a class="page-link" href="/board/list?pageNum=${btnMaker.startPage-1 }">Previous</a></li>
+    </c:if>
+    <!-- 번호 버튼 
+    c 태그의 forEach기능을 쓰되, begin, end 속성을 이용해서 
+    startPage부터 endPage까지의 숫자들이 버튼으로 나열되게 만들어주세요.
+    현재 보고있는 페이지 강조는 class 속성 내에서 삼항연산자를 이용해도 좋다 -->
+    
+    <c:forEach var="pageBtn" begin="${btnMaker.startPage }" end="${btnMaker.endPage }">
+   		 <li class="page-item ${btnMaker.cri.pageNum == pageBtn ? 'active' : '' }"><a class="page-link" href="/board/list?pageNum=${pageBtn }">${pageBtn}</a></li>
+    	<c:if test="${cri.pageNum eq pageBtn}">
+    		
+    	</c:if>
+    </c:forEach>
+    <!-- next 버튼 -->
+    <c:if test="${btnMaker.next }">
+    	<li class="page-item"><a class="page-link" href="/board/list?pageNum=${btnMaker.startPage+10 }">Next</a></li>
+    </c:if>
+  </ul>
+</nav>
   	<button type="button" class="btn btn-primary" onclick="location.href='/board/register'">글쓰기</button>
 	
 	
