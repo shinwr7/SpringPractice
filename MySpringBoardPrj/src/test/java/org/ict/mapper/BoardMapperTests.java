@@ -1,6 +1,7 @@
 package org.ict.mapper;
 
 import org.ict.domain.BoardVO;
+import org.ict.domain.Criteria;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,5 +81,15 @@ public class BoardMapperTests {
 		bm.update(vo);
 	}
 	
+	@Test
+	public void testgetPaging() {
+		// 페이징 코드를 이용해서 원하는 번호의 페이지가 잘 출력되는지
+		// 확인해주세요 
+		
+		
+		Criteria cri = new Criteria(2, 10) ;
+		
+		bm.getListPaging(cri);
+	}
 	
 }

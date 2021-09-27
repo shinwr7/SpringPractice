@@ -57,5 +57,13 @@
 		UPDATE board_tbl SET title=#{title}, content=#{content}, writer=#{writer}, updatedate=sysdate WHERE bno=#{bno}
 	</update>
 	
+	<!-- getListPaging을 완성시켜보세요 -->
+	<select id="getListPaging" resultType="org.ict.domain.BoardVO">
+		<![CDATA[ SELECT bno, title, content, writer, regdate, updatedate FROM
+			(select /* + INDEX_DEXC{board_tbl pk_board}*/
+			rownum rn, board_tbl.* from board_tbl WHERE rownum <=#{pageNum}*#{amount})
+		 WHERE rn > (#{pageNum}-1)*#{amount}
+		 ]]>
+	</select>
 	
 </mapper>

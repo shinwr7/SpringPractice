@@ -4,6 +4,7 @@ package org.ict.controller;
 import java.util.List;
 
 import org.ict.domain.BoardVO;
+import org.ict.domain.Criteria;
 import org.ict.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,7 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	
-	@GetMapping("/list") // Get방식으로만 주소연결
+	//@GetMapping("/list") // Get방식으로만 주소연결
 	public void list(Model model, String keyword) {
 		log.info("keyword 값 : "+ keyword);
 		if(keyword==null) {
@@ -156,5 +157,20 @@ public class BoardController {
 		model.addAttribute("board", vo);
 		
 		return "/board/modify";
+	}
+	
+	@GetMapping("/list")
+	public void list(Criteria cri, Model model) {
+		// pageNum, amount로 전달된 자료를 활용해
+		// 게시글 목록 조회
+		
+		List<BoardVO> boards = 
+		service.getListPaging(cri);
+		
+		model.addAttribute("list", boards);
+		
+		// board/list.jsp로 자동연결이 되므로 
+		// 리턴구문은 필요없습니다.
+		
 	}
 }
