@@ -6,6 +6,7 @@ import java.util.List;
 import org.ict.domain.BoardVO;
 import org.ict.domain.Criteria;
 import org.ict.domain.PageDTO;
+import org.ict.domain.SearchCriteria;
 import org.ict.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -161,7 +162,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/list")
-	public void list(Criteria cri, Model model) {
+	public void list(SearchCriteria cri, Model model) {
 		// pageNum, amount로 전달된 자료를 활용해
 		// 게시글 목록 조회
 		
@@ -173,9 +174,12 @@ public class BoardController {
 		// 우선 글 갯수를 정확하게 모르므로 253개를 임의로 넣고
 		// 까는 버튼 갯수는 최대 10개로 고정
 		
-		PageDTO btnMaker = new PageDTO(cri, service.getListCount(), 10);
+		PageDTO btnMaker = new PageDTO(cri, service.getListCount(cri), 10);
 		
 		// 버튼 관련 정보도 같이 넘겨줌
+		// btnMaker를 넘기면 동시에 SearchCriteria도 같이 넘어감
+		// 단, btnMaker 내부 멤버변수로 SearchCriteria가 있기 때문에
+		// 클래스 내부 변수로 클래스를 넣은 형태라 호출이 2단계로 이루어짐
 		model.addAttribute("btnMaker", btnMaker);
 		
 		model.addAttribute("list", boards);

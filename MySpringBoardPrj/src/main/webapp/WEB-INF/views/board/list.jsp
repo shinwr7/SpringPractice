@@ -34,23 +34,49 @@ ${btnMaker }
   <div class="panel-body">
   </div>
 </div>
- <!-- 검색창 -->
- <div class="navbar navbar-inverse navbar-fixed-top" style="width:1000px">
-   <div class="container">
-      <div class="navbar-header">
-     
-         <form action="/board/list" method="get" class="navbar-form pull-left" role="search">
-            <div class="input-group">
-               <input type="text" name="keyword" placeholder="검색" value="${keyword_ok }"  class="form-control">
-               <div class="input-group-btn">
-                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-               </div>
-            </div>
-         </form>
-      </div>
-   </div>
+<div class="container">
+	<div class="row">
+		<h1 class="text-primary text-center">전체 글 목록</h1>
+	</div>
+	<div class="row">
+		<div class="box-body">
+	 <div class="navbar navbar-inverse navbar-fixed-top" style="width:1000px">
+	   <div class="container">
+	      <div class="navbar-header">
+	     
+	         <form action="/board/list" method="get" class="navbar-form pull-left" role="search">
+			<select name="searchType">
+			<!-- option value => 백으로 전달되는 값 
+				c:out value => 웹으로 출력되는 값 -->
+				<option value="n"
+				<c:out value="${cri.searchType == null ? 'selected' : '' }"/>>-</option>
+				<option value="t"
+				<c:out value="${cri.searchType eq 't' ? 'selected' : '' }"/>>제목</option>
+				<option value="c"
+				<c:out value="${cri.searchType eq 'c' ? 'selected' : '' }"/>>본문</option>
+				<option value="w"
+				<c:out value="${cri.searchType eq 'w' ? 'selected' : '' }"/>>글쓴이</option>
+				<option value="tc"
+				<c:out value="${cri.searchType eq 'tc' ? 'selected' : '' }"/>>제목본문</option>
+				<option value="cw"
+				<c:out value="${cri.searchType eq 'cw' ? 'selected' : '' }"/>>본문글쓴이</option>
+				<option value="tcw"
+				<c:out value="${cri.searchType eq 'tcw' ? 'selected' : '' }"/>>제목본문글쓴이</option>
+			</select>
+			<!-- 검색창 -->
+	            <div class="input-group">
+	               <input type="text" name="keyword" placeholder="검색" value="${keyword_ok }"  class="form-control">
+	               <div class="input-group-btn">
+	                  <button type="submit" class="btn btn-default">검색</button>
+	               </div>
+	            </div>
+	         </form>
+	      </div>
+	   </div>
+	</div>
+		</div>
+	</div>
 </div>
-
 	
 	
 	
@@ -67,7 +93,7 @@ ${btnMaker }
 		<c:forEach var="board" items="${list }">
 		<tr>
 			<td>${board.bno }</td>
-			<td onclick="location.href='/board/get?bno=${board.bno}'">${board.title }</td>
+			<td onclick="location.href='/board/get?bno=${board.bno}&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }'">${board.title }</td>
 			<td>${board.writer }</td>
 			<td>${board.regdate }</td>
 			<td>${board.updatedate }</td>
@@ -79,7 +105,7 @@ ${btnMaker }
   <ul class="pagination justify-content-center">
   	<!-- prev 버튼 -->
   	<c:if test="${btnMaker.prev }">
-    	<li class="page-item"><a class="page-link" href="/board/list?pageNum=${btnMaker.startPage-1 }">Previous</a></li>
+    	<li class="page-item"><a class="page-link" href="/board/list?pageNum=${btnMaker.startPage-1 }&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }">Previous</a></li>
     </c:if>
     <!-- 번호 버튼 
     c 태그의 forEach기능을 쓰되, begin, end 속성을 이용해서 
@@ -87,14 +113,14 @@ ${btnMaker }
     현재 보고있는 페이지 강조는 class 속성 내에서 삼항연산자를 이용해도 좋다 -->
     
     <c:forEach var="pageBtn" begin="${btnMaker.startPage }" end="${btnMaker.endPage }">
-   		 <li class="page-item ${btnMaker.cri.pageNum == pageBtn ? 'active' : '' }"><a class="page-link" href="/board/list?pageNum=${pageBtn }">${pageBtn}</a></li>
+   		 <li class="page-item ${btnMaker.cri.pageNum == pageBtn ? 'active' : '' }"><a class="page-link" href="/board/list?pageNum=${pageBtn }&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }">${pageBtn}</a></li>
     	<c:if test="${cri.pageNum eq pageBtn}">
     		
     	</c:if>
     </c:forEach>
     <!-- next 버튼 -->
     <c:if test="${btnMaker.next }">
-    	<li class="page-item"><a class="page-link" href="/board/list?pageNum=${btnMaker.startPage+10 }">Next</a></li>
+    	<li class="page-item"><a class="page-link" href="/board/list?pageNum=${btnMaker.startPage+10 }&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }">Next</a></li>
     </c:if>
   </ul>
 </nav>
