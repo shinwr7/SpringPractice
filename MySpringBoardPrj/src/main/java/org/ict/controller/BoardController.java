@@ -178,6 +178,7 @@ public class BoardController {
 		// pageNum, amount로 전달된 자료를 활용해
 		// 게시글 목록 조회
 		
+		
 		List<BoardVO> boards = 
 		service.getListPaging(cri);
 		
@@ -187,6 +188,7 @@ public class BoardController {
 		// 까는 버튼 갯수는 최대 10개로 고정
 		
 		PageDTO btnMaker = new PageDTO(cri, service.getListCount(cri), 10);
+		
 		
 		// 버튼 관련 정보도 같이 넘겨줌
 		// btnMaker를 넘기면 동시에 SearchCriteria도 같이 넘어감
