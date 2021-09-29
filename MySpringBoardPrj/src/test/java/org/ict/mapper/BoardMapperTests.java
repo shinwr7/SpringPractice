@@ -89,7 +89,7 @@ public class BoardMapperTests {
 		
 		Criteria cri = new Criteria(2, 10) ;
 		
-		bm.getListPaging(cri);
+		//bm.getListPaging(cri);
 	}
 	
 }

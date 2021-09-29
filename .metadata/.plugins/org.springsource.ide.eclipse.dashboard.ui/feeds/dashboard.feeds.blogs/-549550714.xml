@@ -5,7 +5,35 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-09-27T16:38:08Z</updated>
+  <updated>2021-09-28T17:00:00Z</updated>
+  <entry>
+    <title>This Week in Spring - September 28th, 2021</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/09/28/this-week-in-spring-september-28th-2021" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-09-28:4559</id>
+    <updated>2021-09-28T17:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week &lt;a href="https://twitter.com/mraible/status/1442698739563446276"&gt;I&amp;rsquo;m with&lt;/a&gt; my buddy &lt;a href="https://twitter.com/mraible"&gt;Matt Raible&lt;/a&gt; preparing for what I&amp;rsquo;m hoping will be an awesome San Francisco JUG joint appearance on Wednesday this week! &lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve got to get back to that! But I did want to get through this roundup because it&amp;rsquo;s enormous! So, without further ado:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/09/27/spring-initializr-0-11-0-available-now"&gt;Spring Initializr 0.11.0 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;In last week&amp;rsquo;s &lt;a href="https://spring.io/blog/2021/09/23/a-bootiful-podcast-spring-web-legend-rossen-stoyanchev-on-rsocket-graphql-and-more"&gt;&lt;em&gt;A Bootiful Podcast&lt;/em&gt;, I talked to Spring web legend Rossen Stoyanchev on RSocket, GraphQL and more&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://blog.frankel.ch/reassessing-testng-junit/"&gt;Reassessing TestNG vs. Junit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/09/22/spring-boot-2-4-11-available-now"&gt;Spring Boot 2.4.11 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/09/23/spring-boot-2-5-5-available-now"&gt;Spring Boot 2.5.5 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/09/23/spring-boot-2-6-0-m3-available-now"&gt;Spring Boot 2.6.0-M3 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/09/22/spring-data-jdbc-how-do-i-make-bidirectional-relationships"&gt;Spring Data JDBC - How do I make Bidirectional Relationships?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://developer.okta.com/blog/2021/09/16/spring-native-okta-starter"&gt;Spring Native in Action with the Okta Spring Boot Starter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.wimdeblauwe.com/blog/2021/09/20/todomvc-with-spring-boot-and-thymeleaf-part-1/"&gt;TodoMVC with Spring Boot and Thymeleaf (Part 1) - Wim Deblauwe&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.wimdeblauwe.com/blog/2021/09/23/todomvc-with-spring-boot-and-thymeleaf-part-2/"&gt;TodoMVC with Spring Boot and Thymeleaf (Part 2) - Wim Deblauwe&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.wimdeblauwe.com/blog/2021/09/27/todomvc-with-spring-boot-and-thymeleaf-part-3/"&gt;TodoMVC with Spring Boot and Thymeleaf (Part 3) - Wim Deblauwe&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Neat article on InfoQ.com: &lt;a href="https://www.infoq.com/news/2021/09/spring-6-spring-boot-3-overhaul/"&gt;VMware Overhauls Spring 6 &amp;amp; Spring Boot 3 for Another Decade&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/sjohnr/status/1441390712956735489?s=12"&gt;Check this resource on the Spring Security Authorization Server:&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Initializr 0.11.0 available now</title>
     <link rel="alternate" href="https://spring.io/blog/2021/09/27/spring-initializr-0-11-0-available-now" />
@@ -1300,37 +1328,6 @@ Let me know if you would like me to cover specific topics.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - September 7th, 2021</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/09/07/this-week-in-spring-september-7th-2021" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-09-07:4534</id>
-    <updated>2021-09-07T10:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! I am still reeling from the craziness of last week&amp;rsquo;s SpringOne event! That doesn&amp;rsquo;t mean that the world&amp;rsquo;s stood still in the interim though! Quite the contrary! There&amp;rsquo;s a ton of things to get to this week so without further ado let&amp;rsquo;s go! &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;In last week&amp;rsquo;s, &lt;a href="https://spring.io/blog/2021/09/02/a-bootiful-podcast-springone-2021-and-jackson-and-woodstox-creator-tatu-saloranta"&gt;A Bootiful Podcast, I briefly recap some of the excitement from SpringOne 2021 and then talked Jackson and Woodstox creator Tatu Saloranta&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I loved Spring Framework lead Juergen Hoeller&amp;rsquo;s post &lt;a href="https://spring.io/blog/2021/09/02/a-java-17-and-jakarta-ee-9-baseline-for-spring-framework-6"&gt;&lt;em&gt;A Java 17 and Jakarta EE 9 baseline for Spring Framework 6&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://blog.yugabyte.com/announcing-spring-data-yugabytedb/"&gt;Announcing Spring Data YugabyteDB - The Distributed SQL Blog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://tanzu.vmware.com/content/blog/announcing-vmware-tanzu-application-platform"&gt;Announcing VMware Tanzu Application Platform: A Better Developer Experience on any Kubernetes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/dormaindrewitz/status/1433932107793924100?s=12"&gt;Check out the SpringOne 2021 keynotes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Speaking of SpringOne, I loved this silly moment in one of the talks from Jetbrains&amp;rsquo; &lt;a href="https://twitter.com/hhariri/status/1433687159282835457?s=12"&gt;Hadi Hariri: Spring is not Spring without @starbuxman&lt;/a&gt; - LOL!&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/jonashackt/status/1435201548045463557?s=12"&gt;Jonas Hecht&amp;rsquo;s article, &lt;em&gt;Goodbye Dockerfile&lt;/em&gt;, looking at Cloud Native Buildpacks and Spring Boot, is featured in the summer edition of iXmagazin, a German language developer journal&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://github.com/oracle/oracle-r2dbc/releases/tag/0.3.0"&gt;Kuassi Mensah has announced the latest official release of the R2DBC driver for Oracle database&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/maciejwalkowiak/status/1434066635133001729?s=12"&gt;Maciej Walkowiak lists some good choices for people who want options for feature toggles&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/09/01/monitor-spring-boot-applications-end-to-end-using-dynatrace-in-azure-spring-cloud"&gt;Monitor Spring Boot applications end-to-end using Dynatrace in Azure Spring Cloud!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/piotr_minkowski/status/1432970631893733376?s=12"&gt;Piotr Mi?kowski points the community to this interesting Spring Boot integration for Testcontainers that provides auto-configurations for Spring Boot-based integration tests&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.sourcecodeexamples.net/2020/10/spring-boot-spring-security-jwt-react-polling-app.html?spref=tw&amp;m=1"&gt;Spring Boot, Spring Security, JWT, React, and Ant Design - Polling App | GitHub&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/09/01/spring-graphql-1-0-0-m2-available-now"&gt;Spring GraphQL 1.0.0-M2 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://tanzu.vmware.com/content/blog/springone-2021-day-2-recap-and-highlights"&gt;SpringOne 2021: Day 2 Recap and Breakout Session Highlights&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://tanzu.vmware.com/content/ebooks/the-state-of-spring-2021"&gt;The State of Spring 2021&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://tanzu.vmware.com/content/blog/vmware-tanzu-enterprise-support-spring-boot-native-applications-bellsoft-liberica-nik"&gt;VMware Tanzu Adds Enterprise Support for Spring Boot Native Applications Compiled with BellSoft Liberica NIK&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.infoworld.com/article/3631384/vmware-s-new-tanzu-platform-aims-to-unify-kubernetes-development.amp.html?__twitter_impression=true"&gt;VMware¡¯s new Tanzu platform aims to unify Kubernetes development&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

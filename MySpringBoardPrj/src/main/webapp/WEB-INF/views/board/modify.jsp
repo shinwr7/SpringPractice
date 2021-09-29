@@ -8,8 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+	페이지번호 : ${param.pageNum }<br/>
+	검색조건 : ${param.searchType }<br/>
+	키워드 : ${param.keyword }<br/>
+	
 	<form action="/board/modify" method="post">
 			
+			<input type="hidden" name="pageNum" value="${param.pageNum }">
+			<input type="hidden" name="searchType" value="${param.searchType}">
+			<input type="hidden" name="keyword" value="${param.keyword}">
 		<ul>
 			<li>글번호<input type="text" name="bno" value="${board.bno }" readonly></li>
 			<li>제목<input type="text" name="title" value="${board.title }" required></li>

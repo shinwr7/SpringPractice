@@ -93,7 +93,7 @@ ${btnMaker }
 		<c:forEach var="board" items="${list }">
 		<tr>
 			<td>${board.bno }</td>
-			<td onclick="location.href='/board/get?bno=${board.bno}&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }'">${board.title }</td>
+			<td onclick="location.href='/board/get?pageNum=${btnMaker.cri.pageNum }&bno=${board.bno}&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }'">${board.title }</td>
 			<td>${board.writer }</td>
 			<td>${board.regdate }</td>
 			<td>${board.updatedate }</td>
@@ -105,7 +105,7 @@ ${btnMaker }
   <ul class="pagination justify-content-center">
   	<!-- prev 버튼 -->
   	<c:if test="${btnMaker.prev }">
-    	<li class="page-item"><a class="page-link" href="/board/list?pageNum=${btnMaker.startPage-1 }&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }">Previous</a></li>
+    	<li class="page-item"><a class="page-link" href="/board/list?pageNum=${btnMaker.startPage-1}&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }">Previous</a></li>
     </c:if>
     <!-- 번호 버튼 
     c 태그의 forEach기능을 쓰되, begin, end 속성을 이용해서 

@@ -131,12 +131,24 @@ public class BoardController {
 	// BoardVO로 받아서 처리
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO vo, RedirectAttributes rttr) {
+	// searchType, keyword, pageNum을 컨트롤러가 받아올 수 있도록
+	// 해당 이름의 멤버변수를 가진 SearchCriteria를 파라미터선언
+	public String modify(SearchCriteria cri, BoardVO vo, RedirectAttributes rttr) {
 		service.modify(vo);
 		rttr.addFlashAttribute("m_success", "m_success");
 		
+		log.info("검색어 : " + cri.getKeyword());
+		log.info("검색조건 : "+ cri.getSearchType());
+		log.info("페이지번호 : " + cri.getPageNum());
 		
-		return "redirect:/board/get?bno="+vo.getBno();
+		// rttr.addAttribute("파라미터명", "전달자료")
+		// 는 호출되면 redirect 주소 뒤에 파라미터를 붙여줍니다.
+		rttr.addAttribute("bno", vo.getBno());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		return "redirect:/board/get";
 	}
 	
 	// 글을 수정할때는 modify.jsp 를 이용해 수정을 해야합니다. 

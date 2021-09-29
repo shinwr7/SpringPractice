@@ -85,7 +85,7 @@ public class BoardServiceTests {
 		
 		Criteria cri = new Criteria(10, 10);
 		
-		service.getListPaging(cri);
+		//service.getListPaging(cri);
 		
 	}
 }
