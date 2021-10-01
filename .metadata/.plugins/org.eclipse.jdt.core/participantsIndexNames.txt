@@ -3,3 +3,5 @@ C:\eclipse\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearc
 \prj_rest\src\main\java
 C:\eclipse\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1070411770.index
 \MySpringBoardPrj\src\main\java
+C:\eclipse\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2182011843.index
+\MySpringBoardPrj\src\main\java

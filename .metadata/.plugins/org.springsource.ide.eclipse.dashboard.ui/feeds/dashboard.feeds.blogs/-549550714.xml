@@ -5,7 +5,20 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-09-29T07:00:00Z</updated>
+  <updated>2021-09-30T19:00:00Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: Spring Data engineer Christoph Strobl on MongoDB, Redis, GraphQL and Spring Native`</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/09/30/a-bootiful-podcast-spring-data-engineer-christoph-strobl-on-mongodb-redis-graphql-and-spring-native" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-09-30:4560</id>
+    <updated>2021-09-30T19:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to Spring Data engineer &lt;a href="http://twitter.com/stroblchristoph"&gt;Christoph Strobl (@stroblchristoph)&lt;/a&gt; about GraphQL, MongoDB, and Spring Native, among other things. &lt;/p&gt;
+&lt;iframe title="Spring Data engineer Christoph Strobl on MongoDB, Redis, GraphQL and Spring Native" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=8dq48-10f29e1-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Tips: Bootiful Edge Services</title>
     <link rel="alternate" href="https://spring.io/blog/2021/09/29/spring-tips-bootiful-edge-services" />
@@ -999,19 +1012,6 @@ StepVerifier.create(result)
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>A Bootiful Podcast: Spring Security Engineer Josh Cummings</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/09/09/a-bootiful-podcast-spring-security-engineer-josh-cummings" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-09-09:4541</id>
-    <updated>2021-09-09T19:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, &lt;a href="https://twitter.com/starbuman"&gt;Josh Long (@starbuman)&lt;/a&gt; talks about pumpkin spice lattes, COVID, labor day, and then gets to talk to Spring Security engineer &lt;a href="https://twitter.com/jzheaux"&gt;Josh Cummings (@jzheaux)&lt;/a&gt;&lt;/p&gt;
-&lt;iframe title="Spring Security engineer Josh Cummings" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=kwggi-10d74ff-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;btn-skin=7"&gt;&lt;/iframe&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
