@@ -67,5 +67,8 @@ public class HomeController {
 		return "session2";
 		
 	}
-	
+	@GetMapping("/test")
+	public void ajaxTest() {
+		
+	}
 }
