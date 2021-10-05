@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Mon Oct 04 13:13:35 KST 2021
-org.eclipse.jst.jee.server\:MySpringBoardPrj=C\:\\apache-tomcat-9.0.50\\wtpwebapps\\MySpringBoardPrj
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ict03-14\\.m2\\repository\\org\\springframework\\spring-web\\5.0.7.RELEASE\\spring-web-5.0.7.RELEASE.jar=C\:\\apache-tomcat-9.0.50\\wtpwebapps\\MySpringBoardPrj\\WEB-INF\\lib\\spring-web-5.0.7.RELEASE.jar
+#Tue Oct 05 17:16:39 KST 2021
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ict03-14\\.m2\\repository\\org\\springframework\\spring-web\\5.0.7.RELEASE\\spring-web-5.0.7.RELEASE.jar=C\:\\apache-tomcat-9.0.50\\wtpwebapps\\shinwooram_prj\\WEB-INF\\lib\\spring-web-5.0.7.RELEASE.jar
+org.eclipse.jst.jee.server\:shinwooram_prj=C\:\\apache-tomcat-9.0.50\\wtpwebapps\\shinwooram_prj

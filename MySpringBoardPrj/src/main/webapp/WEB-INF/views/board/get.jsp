@@ -5,12 +5,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<style>
+#modDiv{
+		width: 300px;
+		height: 100px;
+		background-color: green;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -50px;
+		margin-left: -150px;
+		padding: 10px;
+		z-index: 1000;
+	}
+</style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!--1. jquery 입력받을 수 있도록 처리 -->
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--2. body태그 하단에 <script>태그 작성 후 var bno = ${vo.bno}로 글 번호를 받은 다음
+function getAllList()를 test.jsp에서 복붙해서 게시물별 페이지에서 잘 작동하는지 확인 해주세요  -->
 </head>
 <body>
+	
 	<h1>게시글</h1>
 	글번호 : ${board.bno}<br/>
 	제목 : ${board.title }<br/>
@@ -39,7 +58,213 @@
 		<input type="submit" class="btn btn-primary" value="수정하기">
 	</form>
 	
+	<hr>
+	<div class="row">
+		<h3 class="text-primary">댓글</h3>
+		<div id="replies">
+			<!-- 댓글 들어갈 위치 -->
+		</div>
+	</div>
+	<!-- 모달창, 기타 ajax 호출 로직을 가져와서 실제로 작동하는지 화인해주세요. -->
+	
+	<div>
+		<div>
+			REPLYER <input type="text" name="replyer" id="newReplyWriter">
+		</div>
+		<div>
+			REPLY<input type="text" name="reply" id="newReply">
+		</div>
+		<button id="replyAddBtn">ADD REPLY</button>
+	</div>
+
+
+	<!-- 모달 요소는 안보이기 때문에 어디 넣어도 되지만 보통 html 요소들 끼리 놨을 때 
+	제일 아래쪽에 작성하는 경우가 많습니다. -->
+	<div id="modDiv" style="display:none;">
+		<div class="modal-title"></div>
+		<div>
+			<input type="text" id="replytext">
+		</div>
+		<div>
+			<button type="button" id="replyModBtn">Modify</button>
+			<button type="button" id="replyDelBtn">Delete</button>
+			<button type="button" id="closeBtn">Close</button>
+		</div>
+	</div>
+	
+	<script>
+	// 글쓰기
+	$("#replyAddBtn").on("click", function() {
+		// 각 input 태그에 들어있던, 글쓴이, 본문의 value값을 변수에 저장함.
+		var replyer = $("#newReplyWriter").val();
+		var reply = $("#newReply").val();
+		console.log("클릭됨");
+	
+		$.ajax({
+			type:'post',
+			url:'/replies',
+			headers: {
+				"Content-Type" : "application/json",
+				"X-HTTP-METHOD-Override" : "POST"
+				
+			},
+			dataType : "text",
+			data : JSON.stringify({
+				// 왼쪽 : 오른쪽 
+				// 왼쪽 => 쿼리문과 매칭, 오른쪽 => 입력하는 벨류값
+				bno : bno,
+				replyer : replyer,
+				reply : reply
+			}),
+			success : function(result) {
+				if(result =='SUCCESS'){
+					alert("등록되었습니다.");
+					$("#newReplyWriter").val("");
+					$("#newReply").val("");
+					getAllList();
+				}
+			}
+			
+		})
+	});
+	
+	// 글삭제
+	$("#replyDelBtn").on("click", function(){
+		//삭제에 필요한 댓글번호 모달 타이틀 부분에서 얻기
+		var rno = $(".modal-title").html();
+		
+		$.ajax({
+			type : 'delete',
+			url : '/replies/' + rno,
+			// 전달 데이터가 없이 url과 호출타입만으로 삭제처리하므로
+			// 이외 정보는 제공할 필요가 없음
+			success : function(result){
+				if(result === 'SUCCESS') {
+					alert(rno + '번 댓글이 삭제되었습니다.');
+					// 댓글 삭제 후 모달창 닫고 새 댓글목록 갱신
+					$("#modDiv").hide("slow");
+					getAllList();
+				}
+			}
+		})
+	});
+	
+	// 글수정
+	$("#replyModBtn").on("click", function() {
+		//수정에 필요한 댓글번호 모달 타이틀 부분에서 얻기 
+		var rno = $(".modal-title").html();
+		console.log('rno 값: ' + rno);
+		//수정에 필요한 본문내용 #reply의 value 값에서 얻기
+		var reply = $("#replytext").val();
+		console.log('reply 값 : ' + reply );
+		
+		$.ajax({
+			type: 'patch',
+			url : '/replies/' + rno,
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "PATCH"
+			},
+			dataType : 'text',
+			data : JSON.stringify({reply:reply}),
+			success : function(result) {
+				if(result === 'SUCCESS'){
+					alert(rno + "번 댓글이 수정되었습니다.");
+					// 댓글 삭제 후 모달창 닫고 새 댓글목록 갱신
+					$("#modDiv").hide("slow");
+					getAllList();
+				}
+			}
+		})
+	});
+	
+	$("#closeBtn").on("click",function() {
+		$("#modDiv").hide("slow");
+	});
+	
+	// 이벤트 위임
+	// 내가 현재 이벤트를 걸려는 집단(button)을 포함하면서 범위가 제일 좁은 
+	// #replies로 시작조건을 잡습니다.
+	// .on("click", "목적지 태그까지 요소들", function(){실행문})
+	// 과 같이 위임시는 파라미터가 3개 들어갑니다.
+	$("#replies").on("click", ".replyLi button", function() {
+		// this는 최 하위태그인 button, button의 부모면 결국 .replyLi
+		console.log("버튼 클릭.");
+		var replyLi = $(this).parent();
+		
+		// .attr("속성명")을 하면 해당 속성의 값을 얻습니다.
+		var rno = replyLi.attr("data-rno");
+		var reply = replyLi.children(".replytext").text();
+		// 버튼의 부모(replyLi)의 자식(.reply) div class="reply"의 내부텍스트만 가져옴
+		
+		// 클릭한 버튼에 해당하는 댓글번호 + 본문이 얻어지나 디버깅
+		console.log(rno+ ":"+ reply);
+		
+		$(".modal-title").html(rno);
+		$("#replytext").val(reply);
+		$("#modDiv").show("slow");
+	});
+	
+	var bno = ${board.bno};
+	
+	function getAllList() {
+					
+				
+				$.getJSON("/replies/all/" + bno, function(data){
+					console.log(data);
+					
+					// str 변수 내부에 문자 형태로 html 코드를 작성
+					var str ="";
+					
+					str = "<li>123</li>";
+					
+					//#replies인 ul태그 내부에 str을 끼워넣음
+					// ul 내부에 <li>123</li>를 추가하는 구문
+					
+					$(data).each(function(){
+						// $(data).each()는 향상된 for문 처럼 내부데이터를 하나하나 반복합니다.
+						// 내부 this는 댓글 하나하나 입니다. 
+						console.log(this.rno + "/" +this.reply);
+						console.log("------------");
+					});
+					
+					var str = "";
+					$(data).each(
+							function() {
+								// $(data).eacj()는 향상된 for문처럼 내부데이터를 하나하나 반복합니다.
+								// 내부 this는 댓글 하나하나입니다.
+								// 시간 형식을 우리가 쓰는 형식으로 변경
+								var timestamp = this.updateDate;
+								var date = new Date(timestamp);
+								
+								// date만으로도 시간표시는 우리가 아는 형태로 할 수 있지만 보기 불편함
+								
+								// date 내부의 시간을 형식화 해서 출력
+								var formattedTime = "게시일 : " + date.getFullYear()
+													+ "/" + (date.getMonth()+1) //month는 0월부터 시작하므로 1 더해줘
+													+ "/" + date.getDate() // 날짜 추출 
+													+ "/" + date.getHours() // 시간 추출
+													+ ":" + date.getMinutes() // 분 추출
+													
+								// this.updateDate를 표출하면 시간이 unix 시간으로 표시됨 
+								str+="<div class='replyLi' data-rno'" + this.rno + "'><strong>@"
+								+ this.replyer + "</strong> - " + formattedTime + "<br>"
+								+ "<div class = 'replytext'>" + this.reply + "</div>"
+								+ "<button type='button' class = 'btn btn-info'>수정/삭제</button>"
+								+ "</div>";
+								
+							});
+					$("#replies").html(str);
+				});
+				
+				}
+	getAllList();
+	
+	
+	</script>
+	
 </body>
+
 <script type="text/javascript">
 
 		// 컨트롤러에서 m_success라는 이름으로 날린 자료가 들어오는지 확인
