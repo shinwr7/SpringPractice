@@ -200,7 +200,7 @@ function getAllList()를 test.jsp에서 복붙해서 게시물별 페이지에�
 		// 클릭한 버튼에 해당하는 댓글번호 + 본문이 얻어지나 디버깅
 		console.log(rno+ ":"+ reply);
 		
-		$(".modal-title").html(rno);
+		$(".modal-title").html(rno);// 여기서 .modal-title에 rno를 넣어주고 있는데 안나와요.
 		$("#replytext").val(reply);
 		$("#modDiv").show("slow");
 	});
@@ -246,8 +246,10 @@ function getAllList()를 test.jsp에서 복붙해서 게시물별 페이지에�
 													+ "/" + date.getHours() // 시간 추출
 													+ ":" + date.getMinutes() // 분 추출
 													
-								// this.updateDate를 표출하면 시간이 unix 시간으로 표시됨 
-								str+="<div class='replyLi' data-rno'" + this.rno + "'><strong>@"
+								// this.updateDate를 표출하면 시간이 unix 시간으로 표시됨
+								// 아까는 저기 data-rno = 에서 =이 빠져서 속성지정이 이상하게 되어있었습니다.
+								// 어제까지만해도 됐는데 언제 제가 잘못 건들였나봅니다 
+								str+="<div class='replyLi' data-rno='" + this.rno + "'><strong>@"
 								+ this.replyer + "</strong> - " + formattedTime + "<br>"
 								+ "<div class = 'replytext'>" + this.reply + "</div>"
 								+ "<button type='button' class = 'btn btn-info'>수정/삭제</button>"

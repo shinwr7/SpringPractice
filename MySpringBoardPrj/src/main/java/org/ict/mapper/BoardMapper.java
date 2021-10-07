@@ -51,4 +51,7 @@ public interface BoardMapper {
 	public List<BoardVO> getListPaging(SearchCriteria cri);
 	
 	public int getListCount(SearchCriteria cri);
+	
+	// 파라미터를 2개 이상 쓸 경우 @Param 붙여줘야함 !
+	public void updateReplyCount(@Param("bno") Long bno, @Param("amount")int amount);
 }

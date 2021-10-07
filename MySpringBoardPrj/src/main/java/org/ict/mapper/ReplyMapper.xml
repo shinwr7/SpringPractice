@@ -20,5 +20,9 @@
 	<delete id ="delete">
 		delete from reply_tbl where rno=#{rno}
 	</delete>
+	
+	<select id="getBno" resultType="Long">
+		select bno from reply_tbl where rno = #{rno}
+	</select>
 </mapper>
 	

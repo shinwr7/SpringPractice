@@ -93,7 +93,7 @@ ${btnMaker }
 		<c:forEach var="board" items="${list }">
 		<tr>
 			<td>${board.bno }</td>
-			<td onclick="location.href='/board/get?pageNum=${btnMaker.cri.pageNum }&bno=${board.bno}&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }'">${board.title }</td>
+			<td onclick="location.href='/board/get?pageNum=${btnMaker.cri.pageNum }&bno=${board.bno}&searchType=${btnMaker.cri.searchType }&keyword=${btnMaker.cri.keyword }'">${board.title }[${board.replycount }]</td>
 			<td>${board.writer }</td>
 			<td>${board.regdate }</td>
 			<td>${board.updatedate }</td>
