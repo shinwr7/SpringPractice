@@ -31,5 +31,14 @@
 		<select id="read" resultMap="memberMap">
 			SELECT m.userid, userpw, username, enabled, regdate, updatedate, a.auth FROM member_tbl m LEFT OUTER JOIN memeber_auth a on m.userid = a.userid WHERE m.userid = #{userid}
 		</select>
+		
+		<insert id="join">
+			INSERT INTO member_tbl VALUES(#{userid}, #{userpw}, #{username}) 
+		</insert>
+		
+		<insert id="authorize">
+			ISERT INTO member_auth VALUES(#{userid}, #{auth})
+		</insert>
+		
 	
 </mapper>

@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="customLogout" method="post">
-		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
-		<input type="submit" value="로그아웃">
-	</form>
+
 </body>
 </html>
