@@ -1,6 +1,7 @@
 package org.ict.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -14,5 +15,6 @@ public class BoardVO {
 	private Date updatedate;
 	private Long replycount;
 	
+	private List<BoardAttachVO> attachList;
 	
 }

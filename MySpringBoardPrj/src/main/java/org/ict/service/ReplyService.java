@@ -2,6 +2,7 @@ package org.ict.service;
 
 import java.util.List;
 
+import org.ict.domain.BoardAttachVO;
 import org.ict.domain.ReplyVO;
 
 public interface ReplyService {

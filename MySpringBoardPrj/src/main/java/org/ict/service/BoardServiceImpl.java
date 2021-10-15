@@ -2,12 +2,15 @@ package org.ict.service;
 
 import java.util.List;
 
+import org.ict.domain.BoardAttachVO;
 import org.ict.domain.BoardVO;
 import org.ict.domain.Criteria;
 import org.ict.domain.SearchCriteria;
+import org.ict.mapper.BoardAttachMapper;
 import org.ict.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -22,11 +25,25 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardMapper mapper;
 	
+	@Autowired
+	private BoardAttachMapper attachMapper;
+	
+	
 	@Override
 	public void register(BoardVO vo) {
 		
 		log.info("등록 작업 실행");
 		mapper.insertSelectKey(vo);
+		
+		//첨부파일이 존재하지않는다면
+		if(vo.getAttachList() == null || vo.getAttachList().size()<=0) {
+			return;
+		}
+		
+		vo.getAttachList().forEach(attach -> {
+			attach.setBno(vo.getBno());
+			attachMapper.insert(attach);
+		});
 	}
 
 	@Override
@@ -76,6 +93,12 @@ public class BoardServiceImpl implements BoardService{
 	public int getListCount(SearchCriteria cri) {
 		
 		return mapper.getListCount(cri);
+	}
+
+	@Override
+	public List<BoardAttachVO> getAttachList(Long bno) {
+		
+		return attachMapper.findByBno(bno);
 	}
 
 }

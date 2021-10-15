@@ -18,6 +18,23 @@
 		padding: 10px;
 		z-index: 1000;
 	}
+	.uploadResult {
+		width:100%;
+		background-color: gray;
+	}
+	.uploadResult ul {
+		display:flex;
+		flex-flow:row;
+		justify-content:center;
+		align-items:center;
+	}
+	.uploadResult ul li {
+		list-style: none;
+		padding: 10px;
+	}
+	.uploadResult ul li img {
+		width: 20px;
+	}
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <meta charset="UTF-8">
@@ -46,6 +63,7 @@ function getAllList()를 test.jsp에서 복붙해서 게시물별 페이지에�
 	검색조건 : ${param.searchType }<br/>
 	키워드 : ${param.keyword }<br/>
 	<!-- 글 삭제가 되면, 리스트 페이지로 넘어가는데, 삭제로 넘어오는 경우는 alert()창을 띄워서 "글이 삭제되었습니다."가 출력되도록 로직을 짜주세요 -->
+
 	<form action="/board/remove" method="post">
 		<input type="hidden" name="bno" value="${board.bno }">
 		<input type="submit" class="btn btn-danger" value="삭제">
@@ -57,6 +75,125 @@ function getAllList()를 test.jsp에서 복붙해서 게시물별 페이지에�
 		<input type="hidden" name="keyword" value="${param.keyword}">
 		<input type="submit" class="btn btn-primary" value="수정하기">
 	</form>
+	<!-- 첨부파일 추가 -->
+	<hr>
+	<div class="row">
+		<h3 class="text-primary"></h3>
+		<div id='uploadResult'>
+			<ul>
+				<!-- 업로드된 파일이 들어갈 자리 -->
+			</ul>
+		</div>
+	</div>
+	
+		<script>
+		
+			let uploadResult = $(".uploadResult ul");
+			
+			function showUploadedFile(uploadResultArr) {
+				
+				let str = "";
+				
+				// i는 인덱스번호(0, 1, 2, 3..) obj가 그림파일 정보가 담긴 json
+				$(uploadResultArr).each(function(i, obj) {
+					console.log("--------------");
+					console.log(i);
+					console.log(obj);
+					console.log("--------------");
+					
+					if(!obj.image){
+						let fileCallPath = encodeURIComponent(obj.uploadPath + "/" + 
+								obj.uuid + "_"+ obj.fileName);
+						
+						str += "<li><a href='/download?fileName=" + fileCallPath +"'>" + "<li><img src='/resources/attachment.png'>"
+							+ obj.fileName + "</a>"
+							+ "<span data-file=\'" + fileCallPath + "\' data-type='file'> X </span>"
+							+ "</li>";
+							console.log("str : " + str);
+					} else {
+					// str+= "<li>" + obj.fileName + "</li>";
+					// 파일이름 + 썸네일을 보여주기 위해 썸네일 주소 요청하게 만들기
+			
+					let fileCallPath = encodeURIComponent(obj.uploadPath + "//s_" + 
+															obj.uuid + "_"+ obj.fileName);
+					
+					let fileCallPath2 = encodeURIComponent(obj.uploadPath + "/" +
+															obj.uuid + "_"+ obj.fileName);
+					
+					str +="<li><a href='/download?fileName=" + fileCallPath2 + "'>"+"<li><img src='/display?fileName="+fileCallPath+"'></a>"
+							+ "<span data-file=\'" + fileCallPath + "\' data-type='image'> X </span>"
+							+ "</li>";
+					console.log("obj.fileName : " +obj.fileName );
+					
+					}
+				});
+				
+				uploadResult.append(str);
+				
+			}
+		$(".uploadResult").on("click", "span", function(e){
+			let targetFile = $(this).data("file");
+			let type=$(this).data("type");
+			
+			let targetLi = $(this).closest("li");
+			
+			$.ajax({
+				url: '/deleteFile',
+				data: {fileName : targetFile, type:type},
+				dataType: 'text',
+				type: 'POST',
+				success: function(result){
+					alert(result);
+					targetLi.remove();
+				}
+			}); // ajax
+		}); //click span
+		
+		
+	
+		
+		(function(){
+			$.getJSON("/board/getAttachList", {bno: ${board.bno}},function(arr){
+				console.log(arr);
+				
+				// ul 태그 내부에태그를 추가해야 하기 때문에 문자열 이용
+				let str ="";
+				
+				$(arr).each(function(i, attach){
+					// 이미지파일일 경우
+					// image type
+					if(attach.image){
+						let fileCallPath = encodeURIComponent(attach.uploadPath + "/s_" +
+								attach.uuid + "_" + attach.fileName);
+						
+						str += "<li data-path='"+ attach.uploadPath + "' data-uuid='"
+							+ attach.uuid + "' data-filename='"+ attach.fileName
+							+ "' data-type='" + attach.image + "' >"
+							+"<div>"
+							+"<img src='/display?fileName=" + fileCallPath + "'>"
+							+"</div>"
+							+"</li>";
+					} else {
+						
+						str += "<li data-path='"+ attach.uploadPath + "' data-uuid='"
+						+ attach.uuid + "' data-filename='"+ attach.fileName
+						+ "' data-type='" + attach.image + "' >"
+						+"<div>"
+						+"<img src='/resources/file.png' width='100px' height='100px'>"
+						+"</div>"
+						+"</li>";
+					}
+				}); // end forEach
+				
+				$("#uploadResult ul").html(str);
+			});// end getJSON
+			
+		})();
+		
+		
+	</script>
+	
+	
 	
 	<hr>
 	<div class="row">
